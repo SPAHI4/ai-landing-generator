@@ -66,6 +66,8 @@ export function Artifact({ isLoading, artifact }: ArtifactProps) {
       }}
       className={clsx(
         `relative top-0 left-0 shadow-2xl rounded-tl-3xl bl-3xl border-l border-y bg-popover h-full w-full overflow-auto`,
+
+        // fancy animation inspired by Apple Intelligence
         isLoading && 'border-l-transparent border-y-transparent animate-glow',
       )}
     >
