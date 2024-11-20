@@ -3,12 +3,13 @@ import { systemPrompt } from '@/lib/prompt';
 import { openai } from '@ai-sdk/openai';
 import { schema } from '@/lib/schema';
 
+export const maxDuration = 60;
+
 export async function POST(req: Request) {
   const {
     messages,
   }: {
     messages: CoreMessage[];
-    userID: string;
   } = await req.json();
 
   const stream = await streamObject({

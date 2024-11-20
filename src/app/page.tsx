@@ -9,6 +9,9 @@ import { Message, toAISDKMessages } from '@/lib/messages';
 import { Artifact } from '@/components/Artifact';
 import { ChatMessages } from '@/components/ChatMessages';
 
+export const maxDuration = 60;
+export const dynamic = 'force-dynamic';
+
 function usePrevEffect<TDeps extends React.DependencyList>(
   effect: (prev: TDeps) => void | (() => void),
   deps: TDeps,

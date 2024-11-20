@@ -43,7 +43,9 @@ export function Artifact({ isLoading, artifact }: ArtifactProps) {
         onSelectedTabChange('preview');
       }
     }
-  }, [artifact?.code, selectedTab]);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [artifact?.code]);
 
   const handleDownload = () => {
     if (artifact.code) {
