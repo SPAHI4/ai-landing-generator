@@ -37,7 +37,7 @@ export const Preview = memo(function Preview({ html }: { html: string }) {
     <iframe
       ref={iframeRef}
       sandbox="allow-scripts allow-same-origin"
-      className="w-full min-h-screen cursor-pointer"
+      className="w-full h-full cursor-pointer bg-white"
       loading="lazy"
     />
   );

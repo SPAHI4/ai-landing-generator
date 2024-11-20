@@ -149,7 +149,7 @@ export function Artifact({ isLoading, artifact }: ArtifactProps) {
           <TabsContent value="code" className="h-full">
             {artifact.code && <Code code={artifact.code} />}
           </TabsContent>
-          <TabsContent value="preview" className="h-full bg-gray-50">
+          <TabsContent value="preview" className="h-full bg-gray-50 m-0">
             <div className={`h-full ${previewMode === 'mobile' ? 'max-w-sm mx-auto' : ''}`}>
               <Preview html={artifact.code ?? ''} />
             </div>
