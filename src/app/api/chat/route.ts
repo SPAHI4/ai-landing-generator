@@ -1,5 +1,4 @@
 import { CoreMessage, streamObject } from 'ai';
-import { z } from 'zod';
 import { systemPrompt } from '@/lib/prompt';
 import { openai } from '@ai-sdk/openai';
 import { schema } from '@/lib/schema';
@@ -18,7 +17,6 @@ export async function POST(req: Request) {
     system: systemPrompt(),
     messages,
     mode: 'auto',
-    // ...modelParams,
   });
 
   return stream.toTextStreamResponse();

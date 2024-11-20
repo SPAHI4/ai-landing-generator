@@ -70,7 +70,6 @@ export function ChatInput({
       className="mb-2 flex flex-col mt-auto bg-background"
       style={{
         viewTransitionName: 'chat-input',
-        animationDuration: '1s',
       }}
     >
       {isErrored && (

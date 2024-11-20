@@ -27,6 +27,9 @@ export const ChatMessages = ({ messages, isLoading, setPreviewArtifact }: ChatMe
         return (
           <div
             key={index}
+            style={{
+              viewTransitionName: index === 0 ? 'first-message' : undefined,
+            }}
             className={clsx(
               'flex flex-col p-4 py-3 whitespace-pre-wrap',
               message.role === 'user'

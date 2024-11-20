@@ -1,38 +1,43 @@
-import { useState, useEffect, useRef, memo } from 'react';
-
-const customHtml = `
-        <script>
-          document.addEventListener('click', (e) => {
-            if (e.target.tagName === 'A') {
-              e.preventDefault();
-              const href = e.target.getAttribute('href');
-              if (href && href.startsWith('#')) {
-                document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
-              }
-            }
-          });
-        </script>
-`;
-
-function isValidHtml(html: string) {
-  return html.trim().endsWith('/>') || /<\/[a-z0-9]+>\s*$/i.test(html);
-}
+import { useEffect, useRef, memo } from 'react';
 
 export const Preview = memo(function Preview({ html }: { html: string }) {
-  const [validHtml, setValidHtml] = useState(html);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
-    if (isValidHtml(html)) {
-      const modifiedHtml = html + customHtml;
-      setValidHtml(modifiedHtml);
-    }
+    if (!iframeRef.current) return;
+
+    const iframe = iframeRef.current;
+    const iframeDocument = iframe.contentDocument || iframe.contentWindow?.document;
+
+    if (!iframeDocument) return;
+
+    iframeDocument.open();
+    iframeDocument.write(html);
+    iframeDocument.close();
+
+    const handleClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.tagName === 'A') {
+        e.preventDefault();
+        const href = target.getAttribute('href');
+        if (href?.startsWith('#')) {
+          iframeDocument.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    };
+
+    iframeDocument.addEventListener('click', handleClick);
+
+    return () => {
+      iframeDocument.removeEventListener('click', handleClick);
+    };
   }, [html]);
 
   return (
     <iframe
+      ref={iframeRef}
       sandbox="allow-scripts allow-same-origin"
       className="w-full min-h-screen cursor-pointer"
-      srcDoc={validHtml}
       loading="lazy"
     />
   );

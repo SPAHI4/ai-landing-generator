@@ -8,7 +8,6 @@ import { ChatInput } from '@/components/ChatInput';
 import { Message, toAISDKMessages } from '@/lib/messages';
 import { Artifact } from '@/components/Artifact';
 import { ChatMessages } from '@/components/ChatMessages';
-import { flushSync } from 'react-dom';
 
 function usePrevEffect<TDeps extends React.DependencyList>(
   effect: (prev: TDeps) => void | (() => void),
@@ -60,9 +59,7 @@ export default function Home() {
         if (prevObject == null && object) {
           // smooth transition for the input
           document.startViewTransition(() => {
-            flushSync(() => {
-              setArtifact(object);
-            });
+            setArtifact(object);
           });
         } else {
           setArtifact(object);
@@ -131,7 +128,7 @@ export default function Home() {
     <main className="flex min-h-screen max-h-screen">
       <div className="grid w-full grid-cols-[600px_1fr]">
         <div
-          className={`flex flex-col w-full max-h-full max-w-[600px] mx-auto p-4 overflow-auto ${artifact ? 'col-span-1' : 'col-span-2'}`}
+          className={`flex flex-col w-full max-h-full max-w-[800px] mx-auto p-4 overflow-auto ${artifact ? 'col-span-1' : 'col-span-2'}`}
         >
           <ChatMessages messages={messages} isLoading={isLoading} setPreviewArtifact={setArtifact} />
 
@@ -148,7 +145,7 @@ export default function Home() {
           />
         </div>
 
-        <Artifact artifact={artifact} isLoading={isLoading} />
+        {artifact && <Artifact artifact={artifact} isLoading={isLoading} />}
       </div>
     </main>
   );
