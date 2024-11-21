@@ -5,9 +5,6 @@ import TextareaAutosize from 'react-textarea-autosize';
 import { Badge } from '@/components/ui/badge';
 
 const defaultSuggestions = {
-  'Landing page for coffee recommendation app':
-    "I need a sleek page for my AI-powered coffee recommendation app. It should include a hero section describing the app, features overview, user testimonials, subscription plans, and an 'About Us' section with articles about our mission and team.",
-
   'E-commerce product showcase page':
     'Create a visually appealing product showcase page for an online store. Include high-resolution product images, detailed descriptions, pricing information, customer reviews, related products carousel, and a clear call-to-action for purchasing.',
 
@@ -17,8 +14,26 @@ const defaultSuggestions = {
   'Blog article template page':
     'Generate a clean and readable blog article template. Include a title section, author bio, publication date, main content area with support for images and videos, related posts section, and a comments area for user engagement.',
 
+  'Landing page for coffee recommendation app':
+    "I need a sleek page for my AI-powered coffee recommendation app. It should include a hero section describing the app, features overview, user testimonials, subscription plans, and an 'About Us' section with articles about our mission and team.",
+
   'SaaS product landing page':
     'Develop a professional landing page for a SaaS product. It should have a compelling headline, features and benefits sections, pricing tiers, customer testimonials, a demo video, and a prominent sign-up form.',
+
+  'Event registration page':
+    'Create an engaging event registration page. Include event details (date, time, location), agenda schedule, speaker profiles, registration form, pricing information, and FAQs. Incorporate countdown timer and social sharing buttons.',
+
+  'Non-profit organization homepage':
+    'Design a heartfelt homepage for a non-profit organization. It should feature a mission statement, impact statistics, stories from beneficiaries, ways to donate or volunteer, upcoming events, and a newsletter signup form.',
+
+  'Healthcare services landing page':
+    'Generate a trustworthy landing page for a healthcare services provider. Include an overview of services, doctor profiles, patient testimonials, appointment booking form, informational resources, and contact details.',
+
+  'Educational course landing page':
+    'Create an informative landing page for an online educational course. It should feature course overview, curriculum outline, instructor information, student testimonials, pricing options, and a call-to-action to enroll.',
+
+  'Restaurant website homepage':
+    'Design a mouth-watering homepage for a restaurant website. Include high-quality images of dishes, menu highlights, reservation system, customer reviews, about the chef section, and location/map integration.',
 };
 
 type ChatInputProps = {
