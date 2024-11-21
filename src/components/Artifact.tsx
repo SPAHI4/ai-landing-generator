@@ -35,17 +35,27 @@ function download(filename: string, content: string) {
 export function Artifact({ isLoading, artifact }: ArtifactProps) {
   const [selectedTab, onSelectedTabChange] = useState<'code' | 'preview'>('code');
   const [previewMode, setPreviewMode] = useState<'mobile' | 'desktop'>('desktop');
+  const [initiallyToggledToPreview, setInitiallyToggledToPreview] = useState(false);
 
   useEffect(() => {
     // Switch to preview tab if the artifact contains a body tag
-    if (selectedTab !== 'preview') {
+    if (selectedTab !== 'preview' && !initiallyToggledToPreview) {
       if (artifact?.code?.includes('<body')) {
         onSelectedTabChange('preview');
+        setInitiallyToggledToPreview(true);
       }
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [artifact?.code]);
+
+  useEffect(() => {
+    if (isLoading && artifact.code) {
+      onSelectedTabChange('code');
+      setInitiallyToggledToPreview(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading]);
 
   const handleDownload = () => {
     if (artifact.code) {
