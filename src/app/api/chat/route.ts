@@ -15,7 +15,7 @@ export async function POST(req: Request) {
 
   const stream = await streamObject({
     model: openai('gpt-4o'),
-    // model: anthropic('claude-3-5-sonnet-latest'), // WAAAY better for code
+    // model: anthropic('claude-3-5-haiku-latest'), // WAAAY better for code
     schema,
     system: systemPrompt(),
     messages,
