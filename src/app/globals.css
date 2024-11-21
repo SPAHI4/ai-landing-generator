@@ -92,22 +92,22 @@
 
 @keyframes glow {
   from {
-    box-shadow: 0 0 4px #ff00ff, 0 0 4px #ff00ff, 0 0 4px #ff00ff, 0 0 4px #ff00ff;
+    box-shadow: 0 0 5px #ff00ff, 0 0 5px #ff00ff, 0 0 5px #ff00ff, 0 0 5px #ff00ff;
     border-color: #ff00ff;
   }
   to {
-    box-shadow: 0 0 8px #5dade2, 0 0 8px #5dade2, 0 0 8px #5dade2, 0 0 8px #5dade2;
+    box-shadow: 0 0 10px #5dade2, 0 0 10px #5dade2, 0 0 10px #5dade2, 0 0 10px #5dade2;
     border-color: #5dade2;
   }
 }
 
 @keyframes glowInset {
   from {
-    box-shadow: 0 0 4px #ff00ff inset, 0 0 4px #ff00ff inset, 0 0 4px #ff00ff inset,
-    0 0 2.5px #ff00ff inset;
+    box-shadow: 0 0 5px #ff00ff inset, 0 0 5px #ff00ff inset, 0 0 5px #ff00ff inset,
+    0 0 5px #ff00ff inset;
   }
   to {
-    box-shadow: 0 0 8px #5dade2 inset, 0 0 8px #5dade2 inset, 0 0 8px #5dade2 inset,
-    0 0 8px #5dade2 inset;
+    box-shadow: 0 0 10px #5dade2 inset, 0 0 10px #5dade2 inset, 0 0 10px #5dade2 inset,
+    0 0 10px #5dade2 inset;
   }
 }

@@ -39,7 +39,7 @@ export function Artifact({ isLoading, artifact }: ArtifactProps) {
   useEffect(() => {
     // Switch to preview tab if the artifact contains a body tag
     if (selectedTab !== 'preview') {
-      if (artifact?.code?.includes('<body>')) {
+      if (artifact?.code?.includes('<body')) {
         onSelectedTabChange('preview');
       }
     }
@@ -138,7 +138,7 @@ export function Artifact({ isLoading, artifact }: ArtifactProps) {
                 </DialogTrigger>
                 <DialogTitle />
                 <DialogContent className="max-w-[1200px] p-0 rounded-xl overflow-hidden">
-                  <BrowserWindow className="w-full h-full max-h-[calc(100vh-168px)]">
+                  <BrowserWindow className="w-full h-[calc(100vh-168px)]">
                     <Preview html={artifact.code ?? ''} />
                   </BrowserWindow>
                 </DialogContent>
@@ -148,7 +148,7 @@ export function Artifact({ isLoading, artifact }: ArtifactProps) {
         </div>
 
         <div className="overflow-y-auto w-full h-full">
-          <TabsContent value="code" className="h-full">
+          <TabsContent value="code" className="h-full m-0">
             {artifact.code && <Code code={artifact.code} />}
           </TabsContent>
           <TabsContent value="preview" className="h-full bg-gray-50 m-0">

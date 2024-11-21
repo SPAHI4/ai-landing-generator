@@ -21,7 +21,11 @@ export const Preview = memo(function Preview({ html }: { html: string }) {
         e.preventDefault();
         const href = target.getAttribute('href');
         if (href?.startsWith('#')) {
-          iframeDocument.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+          try {
+            iframeDocument.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+          } catch (error) {
+            console.error(error);
+          }
         }
       }
     };
